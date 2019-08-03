@@ -143,6 +143,10 @@ example.org example.net {
 This will lead to `db.example.org` be signed *twice*, as this entire section is parsed twice because
 you have specified the origins `example.org` and `example.net` in the server block.
 
+Forcibly resiging a zone can be accomplished by removing the signed zone file (CoreDNS will keep on
+serving it from memory), and sending SIGUSR1 to the process to make it reload and resign the zone
+file.
+
 ## Also See
 
 The DNSSEC RFCs: RFC 4033, RFC 4034 and RFC 4035. And the BCP on DNSSEC, RFC 6781. Further more the
